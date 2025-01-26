@@ -99,6 +99,11 @@ const Weather = () => {
 
       {/* Display error message */}
       {error && <div className={styles.weatherError}>{error}</div>}
+
+      {/* Source code section */}
+      <div className={styles.sourceCodeContainer}>
+        <p>Source Code: <a href="https://github.com/shreyastagram/weather_app" target="_blank" rel="noopener noreferrer">GitHub Repository</a></p>
+      </div>
     </div>
   );
 };

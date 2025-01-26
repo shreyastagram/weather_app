@@ -114,6 +114,22 @@
     font-size: 16px;
     margin-top: 15px;
 }
+.sourceCodeContainer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .sourceCodeContainer a {
+    color: #0070f3;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .sourceCodeContainer a:hover {
+    text-decoration: underline;
+  }
+  
 
 /* Keyframes for fade-in animation */
 @keyframes fadeIn {
