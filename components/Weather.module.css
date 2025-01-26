@@ -1,0 +1,290 @@
+.weatherContainer {
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(to bottom, #1c1e26, #232630);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    font-family: 'SF Pro Display', 'Arial', sans-serif;
+    color: #ffffff;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Header style */
+.weatherHeader {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 6px rgba(255, 255, 255, 0.3);
+}
+
+/* Search input field */
+.weatherSearchInput {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    background: #2e323d;
+    color: #fff;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+    outline: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weatherSearchInput:focus {
+    background-color: #3a3f4d;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 122, 255, 0.6);
+}
+
+/* Submit button */
+.weatherSubmitBtn {
+    padding: 12px 24px;
+    font-size: 16px;
+    background: #007aff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 122, 255, 0.5);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.weatherSubmitBtn:hover {
+    background-color: #005bb5;
+    transform: scale(1.05);
+}
+
+/* Suggestions dropdown */
+.weatherSuggestions {
+    position: absolute;
+    background: #232630;
+    border: 1px solid #3a3f4d;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 90%;
+    margin: 5px auto;
+    left: 5%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    color: #fff;
+}
+
+.weatherSuggestionItem {
+    padding: 12px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+    color: #d1d1d1;
+    transition: background-color 0.3s ease;
+}
+
+.weatherSuggestionItem:hover {
+    background-color: #3a3f4d;
+}
+
+/* Weather info display */
+.weatherInfo {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #d1d1d1;
+}
+
+.weatherCityName {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 6px rgba(255, 255, 255, 0.2);
+}
+
+.weatherTemp,
+.weatherCondition,
+.weatherWind,
+.weatherHumidity {
+    margin: 8px 0;
+}
+
+/* Error message */
+.weatherError {
+    color: #ff6b6b;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* For smaller mobile devices (up to 480px) */
+@media (max-width: 480px) {
+    .weatherContainer {
+      padding: 10px;
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      box-sizing: border-box;
+    }
+  
+    .weatherHeader {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+  
+    .weatherSearchInput {
+      width: 100%; /* Make the input take up the full width */
+      padding: 10px;
+      font-size: 14px;
+      margin-bottom: 15px; /* Give space below the input */
+      box-sizing: border-box;
+    }
+  
+    .weatherSubmitBtn {
+      padding: 8px 16px;
+      width: 100%; /* Full-width button */
+      font-size: 14px;
+    }
+  
+    .weatherSuggestions {
+      width: 100%; /* Ensure suggestions box is full width */
+      left: 0;
+      right: 0;
+      box-sizing: border-box;
+    }
+  
+    .weatherInfo {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  
+  /* For larger mobile devices (up to 768px, typically tablets and large phones) */
+  @media (max-width: 768px) {
+    .weatherContainer {
+      padding: 15px;
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      box-sizing: border-box;
+    }
+  
+    .weatherHeader {
+      font-size: 1.75rem;
+      margin-bottom: 20px;
+    }
+  
+    .weatherSearchInput {
+      width: 100%; /* Full width for input */
+      padding: 12px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+  
+    .weatherSubmitBtn {
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 16px;
+    }
+  
+    .weatherSuggestions {
+      width: 100%;
+      left: 0;
+      right: 0;
+      box-sizing: border-box;
+    }
+  
+    .weatherInfo {
+      font-size: 16px;
+    }
+  }
+  
+  /* For tablets (768px to 1024px) */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .weatherContainer {
+      width: 90%; /* Adjust width for tablet */
+      padding: 20px;
+      margin: 20px auto;
+      box-sizing: border-box;
+    }
+  
+    .weatherHeader {
+      font-size: 2rem;
+    }
+  
+    .weatherSearchInput {
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+  
+    .weatherSubmitBtn {
+      padding: 12px 24px;
+      width: 100%;
+      font-size: 18px;
+    }
+  
+    .weatherSuggestions {
+      width: 100%;
+      left: 0;
+      right: 0;
+      box-sizing: border-box;
+    }
+  
+    .weatherInfo {
+      font-size: 18px;
+    }
+  }
+  
+  /* For larger tablets and laptops (1024px to 1280px) */
+  @media (min-width: 1024px) and (max-width: 1280px) {
+    .weatherContainer {
+      width: 80%; /* Adjust for larger tablets/laptops */
+      padding: 20px;
+      margin: 20px auto;
+      box-sizing: border-box;
+    }
+  
+    .weatherHeader {
+      font-size: 2.5rem;
+    }
+  
+    .weatherSearchInput {
+      width: 100%;
+      padding: 14px;
+      font-size: 20px;
+      margin-bottom: 25px;
+      box-sizing: border-box;
+    }
+  
+    .weatherSubmitBtn {
+      padding: 14px 28px;
+      width: 100%;
+      font-size: 20px;
+    }
+  
+    .weatherSuggestions {
+      width: 100%;
+      left: 0;
+      right: 0;
+      box-sizing: border-box;
+    }
+  
+    .weatherInfo {
+      font-size: 20px;
+    }
+  }
+  
