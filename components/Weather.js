@@ -4,16 +4,15 @@ import { getWeather, getCitySuggestions } from "../lib/weather";
 import styles from "./Weather.module.css";
 
 const Weather = () => {
-  const [city, setCity] = useState(""); // State to store the city name entered by the user
-  const [weatherData, setWeatherData] = useState(null); // State to store weather data
-  const [citySuggestions, setCitySuggestions] = useState([]); // State to store city suggestions
-  const [error, setError] = useState(""); // State to store any error message
+  const [city, setCity] = useState("");
+  const [weatherData, setWeatherData] = useState(null);
+  const [citySuggestions, setCitySuggestions] = useState([]);
+  const [error, setError] = useState("");
 
-  // Handle user input for city search
   const handleSearch = async (event) => {
     const input = event.target.value;
     setCity(input);
-    setError(""); // Clear error when typing starts
+    setError("");
     if (input.length > 2) {
       const suggestions = await getCitySuggestions(input);
       setCitySuggestions(suggestions);
@@ -22,29 +21,26 @@ const Weather = () => {
     }
   };
 
-  // Handle city selection from suggestions
   const handleCitySelection = async (cityName) => {
-    setCity(cityName); // Set the selected city name in the state
-    await fetchWeather(cityName); // Fetch weather data for the selected city
-    setCitySuggestions([]); // Clear suggestions
+    setCity(cityName);
+    await fetchWeather(cityName);
+    setCitySuggestions([]);
   };
 
-  // Handle Enter key press
   const handleEnterPress = async (event) => {
     if (event.key === "Enter") {
-      await fetchWeather(city); // Fetch weather data for the entered city
-      setCitySuggestions([]); // Clear suggestions
+      await fetchWeather(city);
+      setCitySuggestions([]);
     }
   };
 
-  // Fetch weather data
   const fetchWeather = async (cityName) => {
     const weather = await getWeather(cityName);
     if (weather) {
-      setWeatherData({ ...weather, cityName }); // Include the city name in the weather data
-      setError(""); // Clear any error
+      setWeatherData({ ...weather, cityName });
+      setError("");
     } else {
-      setWeatherData(null); // Clear previous weather data
+      setWeatherData(null);
       setError("Unable to fetch weather data. Please try again.");
     }
   };
@@ -52,8 +48,6 @@ const Weather = () => {
   return (
     <div className={styles.weatherContainer}>
       <h1 className={styles.weatherHeader}>Weather App</h1>
-
-      {/* Search input */}
       <input
         type="text"
         value={city}
@@ -62,16 +56,12 @@ const Weather = () => {
         placeholder="Search for city"
         className={styles.weatherSearchInput}
       />
-
-      {/* Submit button */}
       <button
         onClick={() => fetchWeather(city)}
         className={styles.weatherSubmitBtn}
       >
         Get Weather
       </button>
-
-      {/* City suggestions dropdown */}
       {citySuggestions.length > 0 && (
         <ul className={styles.weatherSuggestions}>
           {citySuggestions.map((suggestion, index) => (
@@ -85,8 +75,6 @@ const Weather = () => {
           ))}
         </ul>
       )}
-
-      {/* Display weather data */}
       {weatherData && (
         <div className={styles.weatherInfo}>
           <h2 className={styles.weatherCityName}>{weatherData.cityName}</h2>
@@ -96,11 +84,7 @@ const Weather = () => {
           <p className={styles.weatherHumidity}>Humidity: {weatherData.humidity}%</p>
         </div>
       )}
-
-      {/* Display error message */}
       {error && <div className={styles.weatherError}>{error}</div>}
-
-      {/* Source code section */}
       <div className={styles.sourceCodeContainer}>
         <p>Source Code: <a href="https://github.com/shreyastagram/weather_app" target="_blank" rel="noopener noreferrer">GitHub Repository</a></p>
       </div>
